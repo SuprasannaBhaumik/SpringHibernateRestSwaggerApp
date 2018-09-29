@@ -9,6 +9,7 @@ public class NavigationController {
 
 	@RequestMapping(value="/greet", method=RequestMethod.GET)
 	public String greeting() {
-		return "hello Suprasanna";
+		return "hello Suprasanna!!!";
 	}
+	
 }

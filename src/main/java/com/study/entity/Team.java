@@ -25,6 +25,9 @@ public class Team {
 	
 	@OneToMany(mappedBy="team")
 	private List<Player> players;
+	
+	@OneToMany(mappedBy="teamOwner")
+	private List<Owner> owners;
 
 	public int getTeamId() {
 		return teamId;
