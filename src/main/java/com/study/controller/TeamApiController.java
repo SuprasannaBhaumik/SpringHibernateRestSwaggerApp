@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.study.entity.Team;
 import com.study.service.IPLService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
-@RequestMapping("/team")
+@RequestMapping("/ipl/team")
+@Api(value ="Teams" , description="API related to operations at Team level")
 public class TeamApiController {
 
 	
@@ -25,13 +29,15 @@ public class TeamApiController {
 		this.service = service;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@ApiOperation(value="API to add an IPL Team to the competition")
+	@RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity addTeam(@RequestBody Team team) {
 		service.addTeam(team);
-		return new ResponseEntity("Team save successfully" ,HttpStatus.OK);
+		return new ResponseEntity("Team successfully added to IPL" ,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/getTeam/{id}")
+	@ApiOperation(value="API to get Team by it's identifier", response = Team.class)
+	@RequestMapping(value="/getTeam/{id}", method = RequestMethod.GET)
 	public Team getTeam(@PathVariable Integer id, Model model) {
 		return service.getTeam(id);
 	}

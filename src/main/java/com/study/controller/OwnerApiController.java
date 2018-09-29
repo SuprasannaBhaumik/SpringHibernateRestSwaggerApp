@@ -10,7 +10,7 @@ import com.study.entity.Owner;
 import com.study.service.IPLService;
 
 @RestController
-@RequestMapping("/owner")
+@RequestMapping("/ipl/owner")
 public class OwnerApiController {
 
 	@Autowired
