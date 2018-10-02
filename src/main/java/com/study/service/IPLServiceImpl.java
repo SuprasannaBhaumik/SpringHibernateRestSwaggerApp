@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.entity.Owner;
+import com.study.entity.Player;
+import com.study.entity.Sponser;
 import com.study.entity.Team;
 import com.study.repository.OwnerRepository;
+import com.study.repository.PlayerRepository;
+import com.study.repository.SponserRepository;
 import com.study.repository.TeamRepository;
 
 @Service
@@ -16,6 +20,12 @@ public class IPLServiceImpl implements IPLService{
 	
 	@Autowired
 	private OwnerRepository ownerRepo;
+	
+	@Autowired
+	private SponserRepository sponserRepo;
+	
+	@Autowired
+	private PlayerRepository playerRepo;
 	
 	@Override
 	public Team getTeam(String teamName) {
@@ -46,7 +56,20 @@ public class IPLServiceImpl implements IPLService{
 	public Owner getOwner(int ownerId) {
 		return ownerRepo.findByOwnerId(ownerId);
 	}
+
+	@Override
+	public Sponser addSponser(Sponser sponser) {
+		return sponserRepo.save(sponser);
+	}
 	
+	public Sponser getSponserById(int sponserId) {
+		return sponserRepo.findBySponserId(sponserId);
+	}
+
+	@Override
+	public Player addPlayer(Player player) {
+		return playerRepo.save(player);
+	}
 	
 
 }

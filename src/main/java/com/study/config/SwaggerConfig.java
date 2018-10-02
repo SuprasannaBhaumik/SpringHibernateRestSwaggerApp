@@ -49,7 +49,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 				.description("API to get all the latest information and news from IPL 2019")
 				.version("1.0.0")
 				.license("IPL Copyright 2019")
-				.licenseUrl("")
+				.licenseUrl("http://www.iplt20.com")
 				.contact(new Contact("Suprasanna", "http://www.iplt20.com", "suprasanna.bhaumik86@gmail.com"))
 				.build();
 	}

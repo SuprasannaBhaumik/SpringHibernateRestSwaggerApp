@@ -1,6 +1,8 @@
 package com.study.service;
 
 import com.study.entity.Owner;
+import com.study.entity.Player;
+import com.study.entity.Sponser;
 import com.study.entity.Team;
 
 public interface IPLService {
@@ -16,4 +18,10 @@ public interface IPLService {
 	Owner addOwner(Owner owner);
 
 	Owner getOwner(int ownerId);
+
+	Sponser addSponser(Sponser sponser);
+	
+	Sponser getSponserById(int sponserId);
+	
+	Player addPlayer(Player player);
 }

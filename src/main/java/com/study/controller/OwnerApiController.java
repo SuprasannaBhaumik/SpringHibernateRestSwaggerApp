@@ -1,9 +1,9 @@
 package com.study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.study.entity.Owner;
@@ -17,7 +17,7 @@ public class OwnerApiController {
 	IPLService ownerService;
 	
 	@RequestMapping(value="/addOwner", method = RequestMethod.POST)
-	public Owner addOwner(@RequestParam Owner owner) {
+	public Owner addOwner(@RequestBody Owner owner) {
 		return ownerService.addOwner(owner);
 	}
 	

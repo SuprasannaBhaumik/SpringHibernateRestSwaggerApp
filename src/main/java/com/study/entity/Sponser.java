@@ -1,5 +1,6 @@
 package com.study.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="TEAM_SPONSERS")
 public class Sponser {
 	
-	Sponser(){
+	public Sponser(){
 		//for hibernate.
 	}
 	
@@ -28,7 +29,7 @@ public class Sponser {
 	@Column(name="SPONSER_TAG")
 	private String sponserTag;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="OWNER_ID")
 	private Owner owner;
 

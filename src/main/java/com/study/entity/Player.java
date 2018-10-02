@@ -1,5 +1,6 @@
 package com.study.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Table(name="PLAYERS")
 public class Player {
 	
-	Player(){
+	public Player(){
 		//default constructor needed for hibernate
 	}
 	
@@ -25,7 +26,7 @@ public class Player {
 	@Column(name="PLAYER_NAME")
 	private String playerName;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="TEAM_ID")
 	private Team team;
 

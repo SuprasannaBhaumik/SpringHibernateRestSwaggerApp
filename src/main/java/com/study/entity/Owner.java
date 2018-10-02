@@ -2,6 +2,7 @@ package com.study.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="IPL_OWNERS")
 public class Owner {
 	
-	Owner(){
+	public Owner(){
 		//default constructor for Hibernate.
 	}
 	
@@ -34,9 +35,9 @@ public class Owner {
 	@OneToMany(mappedBy="owner")
 	private List<Sponser> sponsers;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="TEAM_OWNER_ID")
-	private Owner teamOwner;
+	private Team teamOwner;
 
 	public int getOwnerId() {
 		return ownerId;
@@ -70,11 +71,11 @@ public class Owner {
 		this.sponsers = sponsers;
 	}
 
-	public Owner getTeamOwner() {
+	public Team getTeamOwner() {
 		return teamOwner;
 	}
 
-	public void setTeamOwner(Owner teamOwner) {
+	public void setTeamOwner(Team teamOwner) {
 		this.teamOwner = teamOwner;
 	}
 

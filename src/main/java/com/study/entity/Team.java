@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Team {
 	
-	Team(){
+	public Team(){
 		//default constructor needed for hibernate
 	}
 	
@@ -28,6 +28,14 @@ public class Team {
 	
 	@OneToMany(mappedBy="teamOwner")
 	private List<Owner> owners;
+
+	public List<Owner> getOwners() {
+		return owners;
+	}
+
+	public void setOwners(List<Owner> owners) {
+		this.owners = owners;
+	}
 
 	public int getTeamId() {
 		return teamId;
